@@ -16,6 +16,12 @@ import { CssBaseline, ThemeProvider, createTheme } from '@mui/material'
 //redux imports
 import { themeSettings } from './environments'
 import { useAppSelector } from './store/hooks'
+import Members from './scenes/members'
+import Drivers from './scenes/drivers'
+import Transactions from './scenes/Transactions'
+import Vehicles from './scenes/vehicles'
+import AddMember from './scenes/add-member'
+import AddPayment from './scenes/add-payment'
 
 
 
@@ -36,10 +42,16 @@ function App() {
 
 <Route
   path="/"
-  element={<Navigate to="/dashboard" replace />}
+  element={<Navigate to="/viewdashboard" replace />}
 />
-<Route path="/dashboard" element={<Dashboard />} />
-
+<Route path="/viewdashboard" element={<Dashboard />} />
+<Route path="/viewmembers" element={<Members  />} />
+<Route path='/viewvehicles' element={<Vehicles/>}/>
+<Route path='/viewdrivers' element={<Drivers/>}/>
+<Route path="/viewtransactions" element={<Transactions />} />
+<Route path="*" element={<Navigate to="/viewdashboard" replace />} />
+<Route path="/register" element={<AddMember/>}/>
+<Route path='/payment' element={<AddPayment/>}/>
 </Route>
        </Routes>
         </ThemeProvider>

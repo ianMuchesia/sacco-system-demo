@@ -7,7 +7,7 @@ import FlexBetween from "./FlexBetween";
 import { GridMenuIcon } from "@mui/x-data-grid";
 import { ArrowDropDownCircleOutlined, DarkModeOutlined, LightModeOutlined, Search, SettingsOutlined } from "@mui/icons-material";
 import { setMode } from "../store/features/modeSlice";
-import profile from "../assets/react.svg"
+import profile from "../environments/assets/images/avatars";
 
 
 
