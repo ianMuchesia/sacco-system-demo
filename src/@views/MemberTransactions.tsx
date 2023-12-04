@@ -20,16 +20,26 @@ const MemberTransactions = ({ memberData }:transactionProps) => {
   const theme = useTheme() as ThemeOptions;
 
   const formattedData: ChartData[] = useMemo(() => {
-    const { fullName, payment } = memberData[0];
-    const {  amount, paymentDate } = payment;
+   
 
-    const memberTransactionLine: ChartData = {
-      id: fullName,
-      color: theme.palette.secondary.main,
-      data: [{ x: paymentDate, y: amount }],
+    const monthlyPaymentsLine: ChartData = {
+      id: "monthlyPayments",
+      color: theme.palette.primary[100],
+      data: [],
     };
+  
+    memberData.forEach((record: any) => {
+      const { payment, } = record;
+  
+      
+      const { amount, paymentDate } = payment;
+  
+      const month = paymentDate.split("-")[1];
+  
+      monthlyPaymentsLine.data.push({ x: month, y: amount});
+    });
 
-    return [memberTransactionLine];
+    return [monthlyPaymentsLine];
   }, [memberData, theme.palette.secondary.main]);
 
   return (
@@ -42,7 +52,7 @@ const MemberTransactions = ({ memberData }:transactionProps) => {
             axis: {
               domain: {
                 line: {
-                  stroke: theme.palette.secondary[200],
+                  stroke: theme.palette.secondary[500],
                 },
               },
               legend: {

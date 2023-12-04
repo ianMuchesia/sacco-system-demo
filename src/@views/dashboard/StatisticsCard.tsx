@@ -1,8 +1,8 @@
 import { ReactElement } from "react"
-import { ThemeColor } from "../../@types"
+import { ThemeColor, ThemeOptions } from "../../@types"
 import { TrendingUp } from "@mui/icons-material"
 import { AccountOutline, CellphoneLink, CurrencyUsd, DotsVertical } from "mdi-material-ui"
-import { Avatar, Box, Card, CardContent, CardHeader, Grid, IconButton, Typography } from "@mui/material"
+import { Avatar, Box, Card, CardContent, CardHeader, Grid, IconButton, Typography, useTheme } from "@mui/material"
 
 
 interface DataType {
@@ -16,7 +16,7 @@ interface DataType {
     {
       stats: '245',
       title: 'Members',
-      color: 'primary',
+      color: 'secondary',
       icon: <TrendingUp sx={{ fontSize: '1.75rem' }} />
     },
     {
@@ -26,9 +26,9 @@ interface DataType {
       icon: <AccountOutline sx={{ fontSize: '1.75rem' }} />
     },
     {
-      stats: '1.54k',
+      stats: '154',
       color: 'warning',
-      title: 'Products',
+      title: 'Vehicles',
       icon: <CellphoneLink sx={{ fontSize: '1.75rem' }} />
     },
     {
@@ -40,9 +40,11 @@ interface DataType {
   ]
   
   const renderStats = () => {
+
+
     return salesData.map((item: DataType, index: number) => (
       <Grid item xs={12} sm={3} key={index}>
-        <Box key={index} sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box key={index} sx={{ display: 'flex', alignItems: 'center',}}>
           <Avatar
             variant='rounded'
             sx={{
@@ -66,8 +68,10 @@ interface DataType {
   }
   
   const StatisticsCard = () => {
+    const theme = useTheme() as ThemeOptions
+
     return (
-      <Card>
+      <Card sx={{backgroundColor:theme.palette.background.alt }}>
         <CardHeader
           title='Statistics Card'
           action={

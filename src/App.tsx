@@ -22,6 +22,7 @@ import Transactions from './scenes/Transactions'
 import Vehicles from './scenes/vehicles'
 import AddMember from './scenes/add-member'
 import AddPayment from './scenes/add-payment'
+import Loader from './components/Loader'
 
 
 
@@ -37,6 +38,7 @@ function App() {
       <BrowserRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline/>
+        <Loader/>
        <Routes>
        <Route element={<Layout />}>
 

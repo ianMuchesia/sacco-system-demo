@@ -39,12 +39,12 @@ const WeeklyOverview = () => {
       },
       dataLabels: { enabled: false },
       colors: [
-        theme.palette.background.default,
-        theme.palette.background.default,
-        theme.palette.background.default,
-        theme.palette.primary.main,
-        theme.palette.background.default,
-        theme.palette.background.default
+        theme.palette.secondary[700],
+        theme.palette.secondary[700],
+        theme.palette.secondary[700],
+        theme.palette.secondary[500],
+        theme.palette.secondary[700],
+        theme.palette.secondary[700],
       ],
       states: {
         hover: {
@@ -72,7 +72,10 @@ const WeeklyOverview = () => {
     }
   
     return (
-      <Card>
+      <Card sx={{
+        backgroundColor:theme.palette.background.alt
+      
+      }}>
         <CardHeader
           title='Weekly Overview'
           titleTypographyProps={{
@@ -92,7 +95,7 @@ const WeeklyOverview = () => {
             </Typography>
             <Typography variant='body2'>Your sales performance is 45% 😎 better compared to last month</Typography>
           </Box>
-          <Button fullWidth variant='contained'>
+          <Button fullWidth variant='contained' sx={{backgroundColor:theme.palette.neutral[500],color:theme.palette.primary[500]}}>
             Details
           </Button>
         </CardContent>

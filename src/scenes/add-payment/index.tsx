@@ -1,135 +1,25 @@
-import Card from "@mui/material/Card";
-import Grid from "@mui/material/Grid";
+import { Box, Grid } from "@mui/material";
+import PaymentForm from "../../@views/forms/PaymentForm";
+import Header from "../../components/Header";
 
-import Divider from "@mui/material/Divider";
-import TextField from "@mui/material/TextField";
-import CardHeader from "@mui/material/CardHeader";
-import Typography from "@mui/material/Typography";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import { useForm } from "react-hook-form";
-
-
-type Inputs = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  complaint: string;
-  shortcode: string;
-  paymentMethod: string;
-  transactionId: string;
-  amount: number;
-  paymentDate: string;
-};
 
 const AddPayment = () => {
   
 
-  const {
-    handleSubmit,
-    reset,
-    register,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      complaint: "",
-      shortcode: "",
-      paymentMethod: "", // Add payment-related fields
-      transactionId: "",
-      amount: 0,
-      paymentDate: "",
-    },
-  });
-
-  const paymentSubmit = async (formData: Inputs) => {
-    console.log(formData)     
-    reset()
-  };
 
   return (
-    <Card>
-      <CardHeader
-        title="Please fill all the details before submitting"
-        titleTypographyProps={{ variant: "h6" }}
-      />
-      <Divider />
-      <form onSubmit={handleSubmit(paymentSubmit)}>
-        <CardContent>
-          {/* ... existing code ... */}
+    <Box m="1.5rem 2.5rem">
+    <Header
+      title="Payment Form"
 
-          {/* Payment Information */}
-       
-          <Grid item xs={12}>
-  <Typography variant="body2" sx={{ fontWeight: 600 }}>
-    1. Payment Information
-  </Typography>
-</Grid>
-
-<Grid item xs={12} sm={6}>
-  <TextField
-    fullWidth
-    label="Payment Method"
-    placeholder="Credit Card"
-    {...register("paymentMethod", {
-      required: "Payment method is required",
-    })}
-    error={!!errors.paymentMethod?.message}
-    helperText={errors.paymentMethod?.message}
-  />
-</Grid>
-
-<Grid item xs={12} sm={6}>
-  <TextField
-    fullWidth
-    label="Transaction ID"
-    placeholder="123456"
-    {...register("transactionId", {
-      required: "Transaction ID is required",
-    })}
-    error={!!errors.transactionId?.message}
-    helperText={errors.transactionId?.message}
-  />
-</Grid>
-
-<Grid item xs={12} sm={6}>
-  <TextField
-    fullWidth
-    type="number"
-    label="Amount"
-    placeholder="100"
-    {...register("amount", {
-      required: "Amount is required",
-    })}
-    error={!!errors.amount?.message}
-    helperText={errors.amount?.message}
-  />
-</Grid>
-
-<Grid item xs={12} sm={6}>
-  <TextField
-    fullWidth
-    type="date"
-    label="Payment Date"
-    {...register("paymentDate", {
-      required: "Payment date is required",
-    })}
-    error={!!errors.paymentDate?.message}
-    helperText={errors.paymentDate?.message}
-  />
-</Grid>
-
-        </CardContent>
-        <Divider />
-        <CardActions>
-     
-        </CardActions>
-      </form>
-    </Card>
+      subtitle="Add new payment to the system"
+    />
+    <Box m="2.5rem 0rem">
+    <Grid item xs={12}>
+         <PaymentForm/>
+        </Grid>
+    </Box>
+  </Box>
   );
 };
 
