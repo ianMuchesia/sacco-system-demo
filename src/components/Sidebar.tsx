@@ -1,6 +1,6 @@
-import React, { MouseEvent, useEffect, useState } from 'react'
-import { useAppDispatch } from '../store/hooks';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, {  useEffect, useState } from 'react'
+
+import { useLocation } from 'react-router-dom';
 import { Box, Divider, Drawer, IconButton, List, Typography, useTheme } from '@mui/material';
 import { ThemeOptions } from '../@types';
 import { ChevronLeft } from 'mdi-material-ui';
@@ -19,16 +19,13 @@ interface sideBarProps {
 const Sidebar = ({drawerWidth, isSidebarOpen,isNonMobile,setIsSidebarOpen}:sideBarProps) => {
 
 
-  const dispatch = useAppDispatch()
 
-  const navigate = useNavigate()
 
   //to determine the path we are on
   const { pathname} = useLocation()
   
   const [ active, setActive ] = useState("")
 
-  const [ anchorElement, setAnchorElement] = useState<HTMLElement| null>(null);
 
 
   const theme = useTheme() as ThemeOptions
@@ -39,15 +36,9 @@ const Sidebar = ({drawerWidth, isSidebarOpen,isNonMobile,setIsSidebarOpen}:sideB
     }, [pathname]);
 
 
-    const isOpen  = Boolean(anchorElement);
 
-    const handleClick = (event: MouseEvent<HTMLElement>) => {
-      setAnchorElement(event.currentTarget);
-    };
 
-    const handleClose = () => {
-      setAnchorElement(null);
-    };
+ 
   
   return (
    <Box component="nav">
