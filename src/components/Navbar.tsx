@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../store/hooks";
 import { MouseEvent, useState } from "react";
 import { ThemeOptions } from "../@types";
@@ -22,7 +21,7 @@ const Navbar = ({isSideBarOpen, setIsSideBarOpen}:NavbarProps) => {
   const isLargeScreen  =  useMediaQuery("(min-width: 500px)")
     const dispatch = useAppDispatch()
 
-    const navigate = useNavigate()
+    
 
     const theme = useTheme() as ThemeOptions;
 
