@@ -1,7 +1,8 @@
 import { Avatar, Box, Card, CardContent, CardHeader, IconButton, LinearProgress, Typography } from "@mui/material"
-import { ThemeColor } from "../../@types"
+import { ThemeColor, ThemeOptions } from "../../@types"
 import { DotsVertical, MenuUp } from "mdi-material-ui"
 import { logoaviator, logobit, logozip } from "../../environments/assets/images/cards"
+import { useTheme } from "@emotion/react"
 
 
 interface DataType {
@@ -19,7 +20,7 @@ interface DataType {
       progress: 75,
       imgHeight: 20,
       title: 'Zipcar',
-      color: 'primary',
+      color: 'success',
       amount: 'Ksh.24,895.65',
       subtitle: 'Typescript, React & Material UI',
       imgSrc: logozip
@@ -45,8 +46,10 @@ interface DataType {
   ]
   
   const TotalEarning = () => {
+
+    const theme = useTheme() as ThemeOptions
     return (
-      <Card>
+      <Card sx={{background:theme.palette.background.alt}}>
         <CardHeader
           title='Total Earning'
           titleTypographyProps={{ sx: { lineHeight: '1.6 !important', letterSpacing: '0.15px !important' } }}

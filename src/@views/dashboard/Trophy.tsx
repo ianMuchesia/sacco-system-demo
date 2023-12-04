@@ -1,7 +1,8 @@
-import { Button, Card, CardContent,  Typography, styled } from '@mui/material'
+import { Button, Card, CardContent,  Typography, styled, useTheme } from '@mui/material'
 
 import { useAppSelector } from '../../store/hooks'
 import { trianlelightpng, trianlgedarkpng, trophypng } from '../../environments/assets/images/misc'
+import { ThemeOptions } from '../../@types'
 
 
 // Styled component for the triangle shaped background image
@@ -24,11 +25,12 @@ const TriangleImg = styled('img')({
 const Trophy = () => {
 
   
+  const theme = useTheme() as ThemeOptions
     const mode = useAppSelector(state=>state.mode.mode)
     const imageSrc = mode === 'light' ? trianlelightpng : trianlgedarkpng
   
   return (
-    <Card sx={{ position: 'relative' }}>
+    <Card sx={{ position: 'relative' ,backgroundColor:theme.palette.background.alt }}>
     <CardContent>
       <Typography variant='h6'>Congrats to John Doe! 🥳</Typography>
       <Typography variant='body2' sx={{ letterSpacing: '0.25px' }}>

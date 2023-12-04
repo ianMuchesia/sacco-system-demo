@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../store/hooks";
 import { MouseEvent, useState } from "react";
 import { ThemeOptions } from "../@types";
-import { AppBar, Box, Button, IconButton, InputBase, Menu, MenuItem, Toolbar, Typography, useTheme } from "@mui/material";
+import { AppBar, Box, Button, IconButton, InputBase, Menu, MenuItem, Toolbar, Typography, useMediaQuery, useTheme } from "@mui/material";
 import FlexBetween from "./FlexBetween";
 import { GridMenuIcon } from "@mui/x-data-grid";
 import { ArrowDropDownCircleOutlined, DarkModeOutlined, LightModeOutlined, Search, SettingsOutlined } from "@mui/icons-material";
@@ -19,6 +19,7 @@ interface NavbarProps {
 const Navbar = ({isSideBarOpen, setIsSideBarOpen}:NavbarProps) => {
 
 
+  const isLargeScreen  =  useMediaQuery("(min-width: 500px)")
     const dispatch = useAppDispatch()
 
     const navigate = useNavigate()
@@ -62,7 +63,7 @@ const Navbar = ({isSideBarOpen, setIsSideBarOpen}:NavbarProps) => {
                 padding: "0.1rem 1.5rem",
               }}
             >
-              <FlexBetween gap="3rem">
+              <FlexBetween gap={isLargeScreen? "3rem":""}>
                 <InputBase placeholder="Search..." />
                 <IconButton>
                   <Search />
@@ -71,7 +72,7 @@ const Navbar = ({isSideBarOpen, setIsSideBarOpen}:NavbarProps) => {
             </div>
           </FlexBetween>
           {/* RIGHT SIDE */}
-          <FlexBetween gap="1.5rem">
+          <FlexBetween gap={isLargeScreen ? "1.5rem":""}>
             <IconButton
               onClick={() => {
                 dispatch(setMode());
@@ -86,7 +87,7 @@ const Navbar = ({isSideBarOpen, setIsSideBarOpen}:NavbarProps) => {
               )}
             </IconButton>
             <IconButton>
-              <SettingsOutlined />
+             {isLargeScreen && <SettingsOutlined />}
             </IconButton>
             <Button
               onClick={handleClick}
