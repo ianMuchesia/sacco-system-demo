@@ -10,7 +10,6 @@ import Sidebar from "../components/Sidebar"
 import { Box, useMediaQuery } from "@mui/material" 
 
 //redux imports
-import { useAppDispatch } from "../store/hooks"
 
 //router imports
 import { Outlet } from "react-router-dom"
@@ -22,7 +21,7 @@ const Layout = () => {
 
     const [isSideBarOpen, setIsSideBarOpen] = useState<boolean>(true)
 
-    const dispatch = useAppDispatch()
+   
 
     
   return (
