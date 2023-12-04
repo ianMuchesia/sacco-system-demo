@@ -1,0 +1,73 @@
+export const driversData = [
+    {
+      driverId: 201,
+      fullName: 'Mark Johnson',
+      licenseNumber: 'ABC123456',
+      vehiclePlateNumber: 'XYZ789',
+      yearsOfExperience: 5,
+    },
+    {
+      driverId: 202,
+      fullName: 'Emily Davis',
+      licenseNumber: 'DEF654321',
+      vehiclePlateNumber: 'LMN456',
+      yearsOfExperience: 8,
+    },
+    {
+      driverId: 203,
+      fullName: 'Alex Rodriguez',
+      licenseNumber: 'GHI987654',
+      vehiclePlateNumber: 'OPQ123',
+      yearsOfExperience: 3,
+    },
+    {
+      driverId: 204,
+      fullName: 'Olivia Smith',
+      licenseNumber: 'JKL321987',
+      vehiclePlateNumber: 'RST456',
+      yearsOfExperience: 6,
+    },
+    {
+      driverId: 205,
+      fullName: 'Daniel Kim',
+      licenseNumber: 'MNO789012',
+      vehiclePlateNumber: 'UVW567',
+      yearsOfExperience: 10,
+    },
+    {
+      driverId: 206,
+      fullName: 'Sophie Chen',
+      licenseNumber: 'PQR345678',
+      vehiclePlateNumber: 'XYZ890',
+      yearsOfExperience: 4,
+    },
+    {
+      driverId: 207,
+      fullName: 'Ryan Wilson',
+      licenseNumber: 'STU901234',
+      vehiclePlateNumber: 'ABC123',
+      yearsOfExperience: 7,
+    },
+    {
+      driverId: 208,
+      fullName: 'Eva Martinez',
+      licenseNumber: 'VWX567890',
+      vehiclePlateNumber: 'DEF456',
+      yearsOfExperience: 2,
+    },
+    {
+      driverId: 209,
+      fullName: 'Liam Brown',
+      licenseNumber: 'YZA123456',
+      vehiclePlateNumber: 'BCD789',
+      yearsOfExperience: 9,
+    },
+    {
+      driverId: 210,
+      fullName: 'Ava Jones',
+      licenseNumber: 'EFG234567',
+      vehiclePlateNumber: 'HIJ012',
+      yearsOfExperience: 5,
+    },
+  ];
+  
